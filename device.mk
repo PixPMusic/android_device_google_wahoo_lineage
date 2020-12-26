@@ -101,7 +101,6 @@ MASTER_SIDE_CP_TARGET_LIST := msm8998 # ION specific settings
 PRODUCT_PACKAGES += \
     otapreopt_script \
     cppreopts.sh \
-    update_engine \
     update_verifier
 
 PRODUCT_PACKAGES += \
@@ -132,13 +131,10 @@ PRODUCT_STATIC_BOOT_CONTROL_HAL := \
     libz \
     libcutils
 
-PRODUCT_PACKAGES += \
-    update_engine_sideload
 
 # The following modules are included in debuggable builds only.
 PRODUCT_PACKAGES_DEBUG += \
-    bootctl \
-    update_engine_client
+    bootctl
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.flash-autofocus.xml \
