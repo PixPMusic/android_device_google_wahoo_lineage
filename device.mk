@@ -677,3 +677,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ubuntu/display.conf:system/halium/etc/ubuntu-touch-session.d/android.conf \
     $(LOCAL_PATH)/ubuntu/config-default.xml:system/halium/usr/share/powerd/device_configs/config-default.xml
 
+ PRODUCT_PACKAGES += \
+	miniafservice \
+	uinput-fpc-key-disable
+

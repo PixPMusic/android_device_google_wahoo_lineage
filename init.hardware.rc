@@ -890,3 +890,13 @@ on property:sys.retaildemo.enabled=1
     setprop persist.vendor.charge.stop.level 35
     setprop persist.vendor.charge.start.level 30
 
+service miniaf /system/bin/miniafservice
+    class main
+    user system
+    group audio
+
+service uinput-fpc-key-disable /system/bin/uinput-fpc-key-disable
+    class main
+    user root
+    group root
+
