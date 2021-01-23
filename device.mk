@@ -681,3 +681,5 @@ PRODUCT_COPY_FILES += \
 	miniafservice \
 	uinput-fpc-key-disable
 
+PRODUCT_COPY_FILES += \
+    device/google/wahoo/seccomp_policy/crash_dump.arm.policy:system/etc/seccomp_policy/crash_dump.arm.policy
