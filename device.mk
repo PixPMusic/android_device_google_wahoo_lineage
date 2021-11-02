@@ -674,7 +674,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ubuntu/network/main.conf:system/halium/etc/ofono/main.conf \
     $(LOCAL_PATH)/ubuntu/network/ril_subscription.conf:system/halium/etc/ofono/ril_subscription.conf \
     $(LOCAL_PATH)/ubuntu/70-wahoo.rules:system/halium/lib/udev/rules.d/70-android.rules \
-    $(LOCAL_PATH)/ubuntu/display.conf:system/halium/etc/ubuntu-touch-session.d/android.conf \
     $(LOCAL_PATH)/ubuntu/config-default.xml:system/halium/usr/share/powerd/device_configs/config-default.xml \
     $(LOCAL_PATH)/ubuntu/usb/setupusb:system/bin/setupusb \
     $(LOCAL_PATH)/ubuntu/usb/mtp-state.conf:system/halium/etc/init/mtp-state.conf \
@@ -687,7 +686,6 @@ PRODUCT_COPY_FILES += \
 
  PRODUCT_PACKAGES += \
     strace \
-    miniafservice \
     libminisf \
     libnetutils \
     rild \
@@ -695,7 +693,8 @@ PRODUCT_COPY_FILES += \
     android.hardware.contexthub@1.0 \
     android.hardware.media.omx@1.0-service \
     android.hardware.bluetooth@1.0 \
-    android.hardware.bluetooth.a2dp@1.0
+    android.hardware.bluetooth.a2dp@1.0 \
+    getSPL
 
 
 PRODUCT_COPY_FILES += \
