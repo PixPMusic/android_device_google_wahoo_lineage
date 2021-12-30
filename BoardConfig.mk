@@ -151,6 +151,7 @@ TARGET_USES_COLOR_METADATA := true
 
 # Charger Mode
 BOARD_CHARGER_ENABLE_SUSPEND := true
+BOARD_HEALTHD_CUSTOM_CHARGER_RES := $(COMMON_PATH)/charger/images
 
 # Vendor Interface Manifest
 DEVICE_MANIFEST_FILE := device/google/wahoo/manifest.xml

@@ -29,6 +29,7 @@ on charger
     write /sys/devices/soc/${ro.boot.bootdevice}/clkgate_enable 1
     write /sys/class/typec/port0/port_type sink
     write /sys/module/lpm_levels/parameters/sleep_disabled N
+    start vendor.charger
 
 service vendor.charger /charger
     class charger
