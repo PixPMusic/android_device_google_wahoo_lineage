@@ -699,3 +699,9 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += \
     device/google/wahoo/seccomp_policy/crash_dump.arm.policy:system/etc/seccomp_policy/crash_dump.arm.policy
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/charger/images/battery_fail.png:$(TARGET_ROOT_OUT)/root/res/images/charger/battery_fail.png \
+    $(LOCAL_PATH)/charger/images/battery_scale.png:$(TARGET_ROOT_OUT)/root/res/images/charger/battery_scale.png \
+    $(LOCAL_PATH)/charger/images/main_font.png:$(TARGET_ROOT_OUT)/root/res/images/charger/main_font.png \
+    $(LOCAL_PATH)/charger/values/animation.txt:$(TARGET_ROOT_OUT)/root/res/values/charger/animation.txt
