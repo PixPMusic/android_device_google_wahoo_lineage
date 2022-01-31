@@ -214,10 +214,12 @@ on late-fs
     mount_all /vendor/etc/fstab.${ro.hardware} --late
 
     # Required for time_daemon
-    mkdir /persist/time 0770 system system
+    mkdir /persist/time 0777 system system
+    chmod 0777 /persist/time
 
     # Start time daemon early so that the system time can be set early
-    start vendor.time_daemon
+    #start vendor.time_daemon
+    setprop sys.time.set true
 
 on post-fs
     # set RLIMIT_MEMLOCK to 64MB
@@ -647,6 +649,7 @@ service vendor.time_daemon /vendor/bin/time_daemon
    class core
    user root
    group root
+   disabled
 
 service vendor.ss_ramdump /vendor/bin/subsystem_ramdump
     class main
