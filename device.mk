@@ -705,3 +705,11 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/charger/images/battery_scale.png:$(TARGET_ROOT_OUT)/root/res/images/charger/battery_scale.png \
     $(LOCAL_PATH)/charger/images/main_font.png:$(TARGET_ROOT_OUT)/root/res/images/charger/main_font.png \
     $(LOCAL_PATH)/charger/values/animation.txt:$(TARGET_ROOT_OUT)/root/res/values/charger/animation.txt
+    
+# Enable dynamic blur for Lomiri
+PRODUCT_PROPERTY_OVERRIDES += \
+    ubuntu.unity8.interactive_blur=true
+
+# Enable wireless display support
+PRODUCT_PROPERTY_OVERRIDES += \
+    ubuntu.widi.supported=1
