@@ -694,7 +694,8 @@ PRODUCT_COPY_FILES += \
     android.hardware.contexthub@1.0 \
     android.hardware.media.omx@1.0-service \
     android.hardware.bluetooth@1.0 \
-    android.hardware.bluetooth.a2dp@1.0
+    android.hardware.bluetooth.a2dp@1.0 \
+    vendor.lineage.camera.motor@1.0
 
 
 PRODUCT_COPY_FILES += \
