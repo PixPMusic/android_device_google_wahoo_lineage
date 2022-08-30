@@ -1,0 +1,34 @@
+taimen:
+  PrettyName: Pixel 2XL
+  DeviceType: phone
+  GridUnit: 28
+  SupportedOrientations:
+    - Portrait
+    - Landscape
+    - InvertedLandscape
+  MirAndroidPlatformServerBackpressure:
+    - false
+  MirAndroidPlatformServerPartialUpdates:
+    - true
+  MirAndroidPlatformServerEglSync:
+    - false
+  MirAndroidPlatformClientEglFlush:
+    - "!/usr/bin/unity8,!/usr/bin/lomiri,all"
+
+walleye:
+  PrettyName: Pixel 2
+  DeviceType: phone
+  GridUnit: 23
+  SupportedOrientations:
+    - Portrait
+    - Landscape
+    - InvertedLandscape
+  MirAndroidPlatformServerBackpressure:
+    - false
+  MirAndroidPlatformServerPartialUpdates:
+    - true
+  MirAndroidPlatformServerEglSync:
+    - false
+  MirAndroidPlatformClientEglFlush:
+    - "!/usr/bin/unity8,!/usr/bin/lomiri,all"
+

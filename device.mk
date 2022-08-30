@@ -680,7 +680,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ubuntu/usb/mtp-server.conf:system/halium/usr/share/upstart/sessions/mtp-server.conf \
     $(LOCAL_PATH)/ubuntu/system/on-post-fs-data.rc:system/etc/init/on-post-fs-data.rc \
     $(LOCAL_PATH)/ubuntu/system/on-post-fs-data.sh:system/bin/on-post-fs-data.sh \
-    $(LOCAL_PATH)/ubuntu/recovery/ubports-mounter.sh:root/ubports-mounter.sh
+    $(LOCAL_PATH)/ubuntu/recovery/ubports-mounter.sh:root/ubports-mounter.sh \
+    $(LOCAL_PATH)/ubuntu/system/halium.yaml:system/halium/etc/deviceinfo/devices/halium.yaml
 
 # Ubuntu Touch additional packages
 
