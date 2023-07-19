@@ -101,7 +101,6 @@ MASTER_SIDE_CP_TARGET_LIST := msm8998 # ION specific settings
 PRODUCT_PACKAGES += \
     otapreopt_script \
     cppreopts.sh \
-    update_engine \
     update_verifier
 
 PRODUCT_PACKAGES += \
@@ -132,13 +131,9 @@ PRODUCT_STATIC_BOOT_CONTROL_HAL := \
     libz \
     libcutils
 
-PRODUCT_PACKAGES += \
-    update_engine_sideload
-
 # The following modules are included in debuggable builds only.
 PRODUCT_PACKAGES_DEBUG += \
-    bootctl \
-    update_engine_client
+    bootctl
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.flash-autofocus.xml \
@@ -673,3 +668,50 @@ ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
   PRODUCT_PROPERTY_OVERRIDES += \
       persist.vendor.usb.usbradio.config=diag
 endif
+
+# Ubuntu Touch
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/ubuntu/network/main.conf:system/halium/etc/ofono/main.conf \
+    $(LOCAL_PATH)/ubuntu/network/ril_subscription.conf:system/halium/etc/ofono/ril_subscription.conf \
+    $(LOCAL_PATH)/ubuntu/70-wahoo.rules:system/halium/lib/udev/rules.d/70-android.rules \
+    $(LOCAL_PATH)/ubuntu/config-default.xml:system/halium/usr/share/powerd/device_configs/config-default.xml \
+    $(LOCAL_PATH)/ubuntu/usb/setupusb:system/bin/setupusb \
+    $(LOCAL_PATH)/ubuntu/usb/mtp-state.conf:system/halium/etc/init/mtp-state.conf \
+    $(LOCAL_PATH)/ubuntu/usb/mtp-server.conf:system/halium/usr/share/upstart/sessions/mtp-server.conf \
+    $(LOCAL_PATH)/ubuntu/system/on-post-fs-data.rc:system/etc/init/on-post-fs-data.rc \
+    $(LOCAL_PATH)/ubuntu/system/on-post-fs-data.sh:system/bin/on-post-fs-data.sh \
+    $(LOCAL_PATH)/ubuntu/recovery/ubports-mounter.sh:root/ubports-mounter.sh \
+    $(LOCAL_PATH)/ubuntu/system/halium.yaml:system/halium/etc/deviceinfo/devices/halium.yaml
+
+# Ubuntu Touch additional packages
+
+ PRODUCT_PACKAGES += \
+    strace \
+    libminisf \
+    miniafservice \
+    libnetutils \
+    rild \
+    android.hardware.radio@1.0 \
+    android.hardware.contexthub@1.0 \
+    android.hardware.media.omx@1.0-service \
+    android.hardware.bluetooth@1.0 \
+    android.hardware.bluetooth.a2dp@1.0 \
+    vendor.lineage.camera.motor@1.0
+
+
+PRODUCT_COPY_FILES += \
+    device/google/wahoo/seccomp_policy/crash_dump.arm.policy:system/etc/seccomp_policy/crash_dump.arm.policy
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/charger/images/battery_fail.png:$(TARGET_ROOT_OUT)/root/res/images/charger/battery_fail.png \
+    $(LOCAL_PATH)/charger/images/battery_scale.png:$(TARGET_ROOT_OUT)/root/res/images/charger/battery_scale.png \
+    $(LOCAL_PATH)/charger/images/main_font.png:$(TARGET_ROOT_OUT)/root/res/images/charger/main_font.png \
+    $(LOCAL_PATH)/charger/values/animation.txt:$(TARGET_ROOT_OUT)/root/res/values/charger/animation.txt
+    
+# Enable dynamic blur for Lomiri
+PRODUCT_PROPERTY_OVERRIDES += \
+    ubuntu.unity8.interactive_blur=true
+
+# Enable wireless display support
+PRODUCT_PROPERTY_OVERRIDES += \
+    ubuntu.widi.supported=1

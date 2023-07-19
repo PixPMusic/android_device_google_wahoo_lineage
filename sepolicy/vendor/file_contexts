@@ -287,3 +287,7 @@
 
 # b/70518189 vDSO experiments
 /sys/module/vdso/parameters  u:object_r:sysfs_vdso:s0
+
+# Ubuntu Touch
+/ubports-mounter\.sh u:object_r:ubports-mounter_file:s0
+

@@ -29,6 +29,7 @@ on charger
     write /sys/devices/soc/${ro.boot.bootdevice}/clkgate_enable 1
     write /sys/class/typec/port0/port_type sink
     write /sys/module/lpm_levels/parameters/sleep_disabled N
+    start vendor.charger
 
 service vendor.charger /charger
     class charger
@@ -213,10 +214,12 @@ on late-fs
     mount_all /vendor/etc/fstab.${ro.hardware} --late
 
     # Required for time_daemon
-    mkdir /persist/time 0770 system system
+    mkdir /persist/time 0777 system system
+    chmod 0777 /persist/time
 
     # Start time daemon early so that the system time can be set early
-    start vendor.time_daemon
+    #start vendor.time_daemon
+    setprop sys.time.set true
 
 on post-fs
     # set RLIMIT_MEMLOCK to 64MB
@@ -499,6 +502,9 @@ on boot
     # ftm4 VR mode
     chown system system /sys/devices/virtual/input/ftm4_touch/vrmode
 
+    # Ubuntu Touch: relax access perms to vibrator
+    chmod 0666 /sys/class/timed_output/vibrator/enable
+
 service vendor.init-elabel-sh /system/bin/init.elabel.sh
     class late_start
     user system
@@ -643,6 +649,7 @@ service vendor.time_daemon /vendor/bin/time_daemon
    class core
    user root
    group root
+   disabled
 
 service vendor.ss_ramdump /vendor/bin/subsystem_ramdump
     class main
@@ -769,6 +776,7 @@ service vendor.qti /vendor/bin/qti
     class main
     user radio
     group radio net_raw diag usb net_admin
+    disabled
 
 on property:wc_transport.start_hci=true
     start vendor.hci_filter
@@ -889,4 +897,14 @@ on property:wlan.driver.status=ok
 on property:sys.retaildemo.enabled=1
     setprop persist.vendor.charge.stop.level 35
     setprop persist.vendor.charge.start.level 30
+
+service miniaf /system/bin/miniafservice
+    class main
+    user system
+    group audio
+
+service uinput-fpc-key-disable /system/bin/uinput-fpc-key-disable
+    class main
+    user root
+    group root
 
